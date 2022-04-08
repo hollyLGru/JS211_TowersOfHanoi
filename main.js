@@ -30,26 +30,43 @@ const printStacks = () => {
 }
 
 // Next, what do you think this function should do?
-const movePiece = () => {
-  // Your code here
-
+// will take the last number in start stack and move it to last number on end stack
+// need to get last index in length of array to array.length - 1 or array.slice(-1) 
+const movePiece = (startStack, endStack) => {
+  let lastStack = startStack.pop();
+  // so if you chose "a" as startstack, then lastStack will equal 1! only for this first turn
+  endStack.push(lastStack);
+  // now endstack will be the same array as it was but with the last index of startStack added onto end of it, which changes the array
 }
 
 // Before you move, should you check if the move it actually allowed? Should 3 be able to be stacked on 2
+
 const isLegal = () => {
   // Your code here
-
+  if (startStack.slice(-1) < endStack.slice(-1)) {return turn};
+  // if the starting stacks final number is smaller than the end stacks, then you can make that move according
+  // to the rules
+  if (startStack.slice(-1) > endStack.slice(-1)) {return false};
+// if the last number in the array of startStack is larger than the last number in array of endstack, 
+// then return false because that is against the rules
 }
 
 // What is a win in Towers of Hanoi? When should this function run?
 const checkForWin = () => {
-  // Your code here
+  // this function should win when the array on a stack other than 'a' is 4 , 3 , 2 , 1 
 
 }
 
 // When is this function called? What should it do with its argument?
+// this is first function that is called
 const towersOfHanoi = (startStack, endStack) => {
   // Your code here
+  let startingStack = stacks[startStack];
+  // this is whatever the user choses to start at each time
+  let endingStack = stacks[endStack];
+// this is whatever user choses to end at per turn
+movePiece(startingStack, endingStack);
+// once startStack and end Stack are declared, we want to movePiece 
 
 }
 
